@@ -1,22 +1,28 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Dialog - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#dialog").dialog();
+        });
+    </script>
+</head>
 
 <body>
 
-    <p>Click the button to show the dialog.</p>
+    <div id="dialog" title="Basic dialog">
+        <p>This is the default dialog which is useful for displaying information. The dialog window can be moved,
+            resized and closed with the &apos;x&apos; icon.</p>
+    </div>
 
-    <button onclick="myFunction()">Show dialog</button>
-
-    <p><b>Note:</b> Use the "Esc" button to close the modal.</p>
-    <p><b>Note:</b> The dialog element is only supported in Chrome 37+, Safari 6+ and Opera 24+.</p>
-
-    <dialog id="myDialog">This is a dialog window</dialog>
-
-    <script>
-        function myFunction() {
-            document.getElementById("myDialog").showModal();
-        }
-    </script>
 
 </body>
 
