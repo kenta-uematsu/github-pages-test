@@ -1,84 +1,20 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <title>【デモ】HTMLDialogElement.showModal() - ダイアログをモーダルウィンドウで開く</title>
-    <link rel="canonical" href="https://syncer.jp/Web/API_Interface/Reference/IDL/HTMLDialogElement/showModal/">
-    <meta content="width=device-width,initial-scale=1.0" name="viewport">
-    <script src="https://demo.syncer.jp/js/demo-web_api_interface.js"></script>
-    <script>
-        window.addEventListener("load", function () {
-            syncer.setup({
-                method: {
-                    execute: {
-                        use: true,
-                        callback: [
-                            {
-                                function: (typeof myMethod1 === "function" ? myMethod1 : null),
-                                text: "showModal()で開く",
-                            }, {
-                                function: (typeof myMethod2 === "function" ? myMethod2 : null),
-                                text: "show()で開く",
-                            }
-                        ],
-                    },
-                },
-                error: {
-                    use: true,
-                },
-                console: {
-                    use: true,
-                },
-                htmlElement: {
-                    use: true,
-                    elements: [{
-                        element: document.getElementById("hoge"),
-                        content: true,
-                    }],
-                },
-            });
-        });
-    </script>
-    <style>
-        body {
-            font: 400 15px/1.618 -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Hiragino Kaku Gothic ProN, メイリオ, meiryo, sans-serif;
-            background-color: #fff;
-        }
-    </style>
-</head>
-
 <body>
 
-    <p><code>show()</code>と、<code>showModal()</code>で開いた時の違いを確認して下さい。<code>showModal()</code>で開いた場合、<kbd>Escape</kbd>で閉じた時にcancelイベントが発生します。
-    </p>
+    <p>Click the button to show the dialog.</p>
 
-    <dialog id="hoge">
-        <p>このダイアログは、ボタンをクリックすると閉じます。</p>
-        <p><code>showModal()</code>で開いた場合は、<kbd>Escape</kbd>でも閉じることができます。</p>
-        <p><button type="button" onclick="parentNode.parentNode.close()">閉じる</button></p>
-    </dialog>
+    <button onclick="myFunction()">Show dialog</button>
+
+    <p><b>Note:</b> Use the "Esc" button to close the modal.</p>
+    <p><b>Note:</b> The dialog element is only supported in Chrome 37+, Safari 6+ and Opera 24+.</p>
+
+    <dialog id="myDialog">This is a dialog window</dialog>
 
     <script>
-        // 要素の取得
-        var element = document.getElementById("hoge");
-
-        // showModal()
-        function myMethod1() {
-            // メソッドを実行
-            element.showModal();
-        }
-
-        // show()
-        function myMethod2() {
-            // メソッドを実行
-            element.show();
-        }
-
-        // cancelイベントを設定
-        element.oncancel = function (event) {
-            // 内容を確認
-            console.log(event);
+        function myFunction() {
+            document.getElementById("myDialog").showModal();
         }
     </script>
 
