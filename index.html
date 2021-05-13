@@ -1,26 +1,29 @@
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
-<div id="div2" >
-<p>メッセージ</p>
+<!--ダイアログ-->
+<div id="div2">
+    <p>メッセージテスト11111111111111111111</p>
 </div>
+
+
 <input type="button" id="button2" value="ボタン2" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script>
-$(function() {
-	$("#div2").dialog({
-		autoOpen: false, //呼ばれるまで非表示
-		modal:true, //モーダル表示
-		title:"テストダイアログ2", //タイトル
-		buttons: { //ボタン
-		"確認": function() {
-			$(this).dialog("close");
-			}
-		}
-	});
-	$("#button2").click(function() {
-		$("#div2").dialog("open");
-	});
-});
+    $(function () {
+        $("#div2").dialog({
+            autoOpen: false, //呼ばれるまで非表示
+            modal: true, //モーダル表示
+            title: "テストダイアログ2", //タイトル
+            buttons: { //ボタン
+                "確認": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+        $("#button2").click(function () {
+            $("#div2").dialog("open");
+        });
+    });
 </script>
