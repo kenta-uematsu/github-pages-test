@@ -1,46 +1,26 @@
-<!doctype html>
-<html lang="en">
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jQuery UI Dialog - Default functionality</title>
+<div id="div2" >
+<p>メッセージ</p>
+</div>
+<input type="button" id="button2" value="ボタン2" />
 
-    <link rel="stylesheet" href="./demo.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-</head>
-
-<body>
-
-    <div class="dialog" id="sample-dialog">
-        <div class="dialog-header">
-            <span class="dialog-title">サンプルダイアログ</span>
-            <button type="button" class="dialog-close">
-                閉じる☓
-            </button>
-        </div>
-        <div class="dialog-content">
-            <p>ダイアログです</p>
-        </div>
-    </div>
-    <button id="open-sample-dialog">ダイアログを開く</button>
-
-</body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script>
-    $("#open-sample-dialog").on("click", function () {
-        //leftの値 = (ウィンドウ幅 -コンテンツ幅) ÷ 2
-        var leftPosition = (($(window).width() - $("#sample-dialog").outerWidth(true)) / 2);
-        //CSSを変更
-        $("#sample-dialog").css({ "left": leftPosition + "px" });
-        //ダイアログを表示する
-        $("#sample-dialog").show();
-    });
-    //閉じるボタンで非表示
-    $(".dialog-close").on("click", function () {
-        $(this).parents(".dialog").hide();
-    });
+$(function() {
+	$("#div2").dialog({
+		autoOpen: false, //呼ばれるまで非表示
+		modal:true, //モーダル表示
+		title:"テストダイアログ2", //タイトル
+		buttons: { //ボタン
+		"確認": function() {
+			$(this).dialog("close");
+			}
+		}
+	});
+	$("#button2").click(function() {
+		$("#div2").dialog("open");
+	});
+});
 </script>
-
-</html>
